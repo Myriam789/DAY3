@@ -1,13 +1,15 @@
-functionfillbus(peopleAtbusStops, busSeats) { 
-  if (!Array(peopleAtBusStops)// typeof busSeats ! == 'number'// busSeats < 0 {
-  return null;
-  }
- let currentCapacity = 0;
- 
- for (let i = 0; i < peopleAtBusStops.length; i=i+1) { 
- currentCapacity +=peopleAtBusStops [i];
- if(currentCapacity >= busSeats) return i;
+function fillbus(peopleAtbusStops, busSeats)
+{ 
+    if (!Array.isArray(peopleAtbusStops) || typeof busSeats !== 'number' || busSeats < 0) 
+    {
+        return -1;
+    }
+    let currentCapacity = 0;
+    for (let i = 0; i < peopleAtbusStops.length; i++)
+    { 
+        currentCapacity += peopleAtbusStops[i];
+        if(currentCapacity >= busSeats) return i;
     } 
-    return null
+    return -1;
 }
-consol.log(fillbus([1, 3, 10, 1],12));
+console.log(fillbus([1, 3, 10, 1],12));
